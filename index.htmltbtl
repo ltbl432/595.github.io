@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>معلومات جهازك</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+      direction: rtl;
+      text-align: right;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .info {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>معلومات جهازك</h1>
+  <div class="info" id="device-info">
+    جاري جمع البيانات...
+  </div>
+
+  <script>
+    function getDeviceInfo() {
+      const infoDiv = document.getElementById("device-info");
+      const userAgent = navigator.userAgent;
+      const language = navigator.language;
+      const screenSize = `${screen.width}x${screen.height}`;
+      const platform = navigator.platform;
+
+      let html = `
+        <p><strong>المتصفح:</strong> ${navigator.appName}</p>
+        <p><strong>نظام التشغيل:</strong> ${platform}</p>
+        <p><strong>لغة المتصفح:</strong> ${language}</p>
+        <p><strong>حجم الشاشة:</strong> ${screenSize}</p>
+        <p><strong>User-Agent:</strong> ${userAgent}</p>
+      `;
+
+      infoDiv.innerHTML = html;
+    }
+
+    getDeviceInfo();
+  </script>
+
+</body>
+</html>
